@@ -15,5 +15,22 @@
     <br>
     <input type="submit" value="submit">
   </form>
+  <hr>
+  <% if (files) { %>
+    <% files.forEach(file => { %>
+      <div>
+        <% if (file.isImage) { %>
+          <img src="image/<%= file.filename %>" alt="">
+        <% } else { %>
+          <%= file.filename %>
+        <% } %>
+        <form action="/files/<%= file._id %>?_method=DELETE" method="POST">
+          <button>Delete</button>
+        </form>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <p>No files to show</p>
+  <% } %>
 </body>
 </html>

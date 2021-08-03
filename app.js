@@ -1,4 +1,13 @@
+'use strict';
+
 const express = require('express');
+const path = require('path');
+const crypto = require('crypto');
+const mongoose = require('mongoose');
+const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream');
+const methodOveride = require('method-override');
 
 const app = express();
 
